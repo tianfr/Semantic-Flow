@@ -1,4 +1,0 @@
-*.egg-info/
-.installed.cfg
-*.egg
-*__pycache__*
