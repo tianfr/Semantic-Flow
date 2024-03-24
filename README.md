@@ -1,9 +1,14 @@
 # Semantic-Flow
-[ICLR 2023] This is the official implementation of our paper "Semantic Flow: Learning Semantic Fields of Dynamic Scenes from Monocular Videos".
+[ICLR 2024] This is the official implementation of our paper "Semantic Flow: Learning Semantic Fields of Dynamic Scenes from Monocular Videos".
 
 ![image](https://github.com/tianfr/Semantic-Flow/assets/44290909/97fb59da-2987-4546-8c49-39480f3c0431)
 
-*Codes will be released. Stay tuned!*
+> **Semantic Flow: Learning Semantic Fields of Dynamic Scenes from Monocular Videos**<br>
+> [Fengrui Tian](http://tianfr.github.io), [Yueqi Duan](https://duanyueqi.github.io/), [Angtian Wang](https://scholar.google.com/citations?user=YR7re-cAAAAJ&hl=zh-CN), [jianfei Guo](https://ventusff.github.io/), [Shaoyi Du](https://gr.xjtu.edu.cn/en/web/dushaoyi/home),  <br>
+in ICLR 2024 <br>
+
+[paper](https://openreview.net/forum?id=A2mRcRyGdl) / [pdf](https://openreview.net/pdf?id=A2mRcRyGdl)
+
 
 ## Environment Setup
 The code is tested with
@@ -11,7 +16,7 @@ The code is tested with
 * Anaconda 3
 * Python 3.8.12
 * CUDA 11.1
-* A100 or 3090 GPUs
+* 3090 GPUs
 
 
 To get started, please create the conda environment `semflow` by running
@@ -95,3 +100,22 @@ Test the generalization ability on completion task:
 chmod +x run_sh/completion_w_config.sh
 run_sh/completion_w_config.sh 0 Semantic-Flow/semflow_conf/exp/completion/Balloon2.conf
 ```
+
+
+# License
+This work is licensed under MIT License. See [LICENSE](LICENSE) for details.
+
+If you find this code useful for your research, please consider citing the following paper:
+```
+@inproceedings{24iclr/tian_semflow,
+    author    = {Tian, Fengrui and Duan, Yueqi and Wang, Angtian and Guo Jianfei and Du, Shaoyi},
+    title     = {{Semantic Flow}: Learning Semantic fields of Dynamic Scenes from Monocular Videos},
+    booktitle = {Proceedings of the International Conference on Learning Representations (ICLR)},
+    month     = {May},
+    year      = {2024}
+}
+```
+# Acknowledgement
+Our code is built upon [MonoNeRF](https://github.com/tianfr/MonoNeRF), [NeRF](https://github.com/bmild/nerf), [NeRF-pytorch](https://github.com/yenchenlin/nerf-pytorch), [NSFF](https://github.com/zl548/Neural-Scene-Flow-Fields), [DynamicNeRF](https://github.com/gaochen315/DynamicNeRF) and [pixelNeRF](https://github.com/sxyu/pixel-nerf).
+# Contact
+If you have any questions, please feel free to contact [Fengrui Tian](https://tianfr.github.io).
