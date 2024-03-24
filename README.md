@@ -108,7 +108,7 @@ This work is licensed under MIT License. See [LICENSE](LICENSE) for details.
 If you find this code useful for your research, please consider citing the following paper:
 ```
 @inproceedings{24iclr/tian_semflow,
-    author    = {Tian, Fengrui and Duan, Yueqi and Wang, Angtian and Guo Jianfei and Du, Shaoyi},
+    author    = {Tian, Fengrui and Duan, Yueqi and Wang, Angtian and Guo, Jianfei and Du, Shaoyi},
     title     = {{Semantic Flow}: Learning Semantic fields of Dynamic Scenes from Monocular Videos},
     booktitle = {Proceedings of the International Conference on Learning Representations (ICLR)},
     month     = {May},
