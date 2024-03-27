@@ -424,6 +424,38 @@ class ResnetFC(nn.Module):
         ### ODE related
         assert flow_mode in ["ode", "discrete"]
         self.ode_flow = (flow_mode in ["ode", "discrete"])
+        
+        if self.ode_flow:
+            ode_part = dict(
+                lin_in=self.lin_in,
+                # blocks=self.blocks,
+                blocks=self.global_blocks,
+                lin_global_z=self.lin_global_z,
+                sf_linear=self.sf_linear,
+            )
+            self.vector_field = vector_field(embed_dim=self.d_in, c_dim=c_dim, z_dim=0, **ode_part)
+            print(self.vector_field)
+            self.ode_fc = nn.Sequential(
+                nn.Linear(2048, 4096),
+                nn.ReLU(),
+                nn.Linear(4096, c_dim),
+            )
+            
+            self.ode_pool = nn.AdaptiveAvgPool3d(1)
+
+            self.p0_z = p0_z
+            self.rtol = rtol
+            self.atol = atol
+            self.ode_solver = ode_solver
+
+            # if use_adjoint:
+            #     self.odeint = odeint_adjoint
+            # else:
+            #     self.odeint = odeint
+
+            self.ode_options = {}
+            if ode_step_size:
+                self.ode_options['step_size'] = ode_step_size
  
         if self.use_semantic_labels:
             self.semantic_class_num = semantic_class_num

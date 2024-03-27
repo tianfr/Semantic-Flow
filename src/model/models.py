@@ -13,7 +13,6 @@ import torch.nn as nn
 
 from src.util import repeat_interleave
 
-from .code import PositionalEncoding
 from .encoder import ImageEncoder
 from .model_util import make_encoder, make_mlp
 
@@ -122,10 +121,6 @@ class PixelNeRFNet(torch.nn.Module):
         if self.use_viewdirs and self.use_code_viewdirs:
             # Apply positional encoding to viewdirs
             d_in += 3
-        if self.use_code and d_in > 0:
-            # Positional encoding for x,y,z OR view z
-            self.code = PositionalEncoding.from_conf(conf['code'], d_in=d_in)
-            d_in = self.code.d_out
         if self.use_viewdirs and not self.use_code_viewdirs:
             # Don't apply positional encoding to viewdirs (concat after encoded)
             d_in += 3

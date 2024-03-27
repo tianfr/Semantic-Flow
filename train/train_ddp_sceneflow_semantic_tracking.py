@@ -23,7 +23,6 @@ from tqdm import tqdm
 from tqdm.contrib.logging import logging_redirect_tqdm
 
 from src import util
-from src.model import loss
 
 import torch.distributed as dist
 import gc
@@ -184,12 +183,6 @@ class PixelNeRFTrainer(trainlib.Trainer):
         # self.logger.info(
         #     'lambda coarse {} and fine {}'.format(self.lambda_coarse, self.lambda_fine)
         # )
-        self.rgb_coarse_crit = loss.get_rgb_loss(conf['loss.rgb'], True)
-        fine_loss_conf = conf['loss.rgb']
-        if 'rgb_fine' in conf['loss']:
-            self.logger.info('using fine loss')
-            fine_loss_conf = conf['loss.rgb_fine']
-        self.rgb_fine_crit = loss.get_rgb_loss(fine_loss_conf, False)
 
         # if self.args.resume:
         #     if os.path.exists(self.renderer_state_path):

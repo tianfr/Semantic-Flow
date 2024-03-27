@@ -11,7 +11,7 @@ import time
 from run_nerf_helpers import *
 from src import util
 from src.data import get_split_dataset
-from src.model import loss, make_model
+from src.model import make_model
 
 import torch.distributed as dist
 from mmcv.runner import get_dist_info, init_dist

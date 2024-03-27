@@ -6,7 +6,7 @@ from mmaction.utils import (collect_env, get_root_logger,
                             register_module_hooks, setup_multi_processes)
 from mmcv import Config
 
-from .encoder import (ImageEncoder, Resnet18, SpatialEncoder,
+from .encoder import (ImageEncoder, Resnet18,
                       SpatialTemporalEncoder)
 from .mlp_dynamic import MLP_dynamic
 from .mlp_static import MLP_static
