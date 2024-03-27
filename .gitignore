@@ -3,7 +3,7 @@ __pycache__/
 .history
 
 # Dataset files
-data
+./data
 data_using_pretrained_model
 data_semantic
 data_semantic.old
