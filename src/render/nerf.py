@@ -357,7 +357,7 @@ class NeRFRenderer(torch.nn.Module):
         Specifically, it renders rays with this renderer
         but always using the given network instance.
         Specify a list of GPU ids in 'gpus' to apply DataParallel automatically.
-        :param net A PixelNeRF network
+        :param net A SemanticFlow network
         :param gpus list of GPU ids to parallize to. If length is 1,
         does not parallelize
         :param simple_output only returns rendered (rgb, depth) instead of the 

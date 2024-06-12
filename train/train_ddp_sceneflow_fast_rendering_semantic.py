@@ -139,7 +139,6 @@ device = util.get_cuda(args.gpu_id[0])
 args.add_features = conf['info.add_features']
 args.basedir = conf['info.basedir']
 args.expname = conf['info.expname']
-# args.expname = 'train_2enc_sparse_loss_lambda0.01_dyn_blending_depth0.1_wo_depthdecay_Fnorm_EPSdepth_Balloon1_H270_DyNeRF_pretrain_PixelnerfSemantic_256channel_useviewdir_SDresnet_woNDC'
 
 
 # args.blending_thickness = 0.1
@@ -171,7 +170,7 @@ args.flow_loss_lambda = conf['info.flow_loss_lambda']
 
 nviews = list(map(int, args.nviews.split()))
 
-class PixelNeRFTrainer(trainlib.Trainer):
+class SemanticFlowTrainer(trainlib.Trainer):
     def __init__(self, args, conf):
         super().__init__(args, conf, device=None)
         # self.renderer_state_path = "%s/%s/_renderer" % (
@@ -464,7 +463,7 @@ class PixelNeRFTrainer(trainlib.Trainer):
                     # loss_dict['sparse_weights_d_loss'] = sparse_weights_d_loss
                     # loss += self.args.sparse_loss_lambda * loss_dict['sparse_weights_d_loss']
 
-                    # Semantic MonoNeRF Loss.
+                    #  Loss.
                     if self.conf.get_bool("model.use_semantic_labels", False):
                         semantic_logit_map_s = ret["semantic_logit_map_s"] # N_rays x num_classes
                         loss_semantic_logits = compute_semantic_loss(semantic_logit_map_s, batch_semantic_label_logits)
@@ -942,7 +941,6 @@ class PixelNeRFTrainer(trainlib.Trainer):
                     loss += self.args.dynamic_loss_lambda * loss_dict['img_d_f_f_loss']
 
                 
-                # Semantic MonoNeRF Loss.
                 if self.conf.get_bool("model.use_semantic_labels", False):
                     semantic_logit_map_full = ret["semantic_logit_map_full"] # N_batch x N_rays x num_classes
                     loss_semantic_logits_full = compute_semantic_loss(semantic_logit_map_full, batch_semantic_label_logits)
@@ -1253,5 +1251,5 @@ class PixelNeRFTrainer(trainlib.Trainer):
 
 
 # torch.set_default_tensor_type('torch.cuda.FloatTensor')
-trainer = PixelNeRFTrainer(args, conf)
+trainer = SemanticFlowTrainer(args, conf)
 trainer.start_train()

@@ -186,7 +186,7 @@ def parse_args(
     parser.add_argument("--deterministic", type=bool, default=True)
 
     # From PixelNeRF
-    parser.add_argument('--conf', '-c', type=str, default='pixelnerf_conf/exp/dynamic.conf')
+    parser.add_argument('--conf', '-c', type=str, default='semflow_conf/exp/dynamic.conf')
     # parser.add_argument("--resume", "-r", action="store_true", help="continue training", default=True)
     parser.add_argument(
         '--gpu_id', type=str, default='0', help='GPU(s) to use, space delimited'

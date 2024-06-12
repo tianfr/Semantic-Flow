@@ -152,7 +152,7 @@ def calculate_metrics(data_dir, sequence_idx, methods, lpips_loss):
     CLASSACCURACYs = np.zeros((len(methods)))
 
     nFrame = 0
-    json_path = os.path.join(data_dir, 'pixelnerf_config.json')
+    json_path = os.path.join(data_dir, 'semflow_config.json')
     with open(json_path, 'r') as f:
         json_data = json.load(f)
 
@@ -221,7 +221,7 @@ if __name__ == '__main__':
 
     lpips_loss = lpips.LPIPS(net='alex') # best forward scores
     # data_dir = '../results'
-    data_dir = f'/data/tianfr/NeRF_series/SemanticFlow/logs/semantic_mononerf/full_radiance_field/semantic_flow/tuning_hyperpara/1gpusJumping_Skating_with_semantic_consistency_semantic_branch_wo_intra_attn_debug_ndc_flow_use_flow_distance_lr_decay_8k_newsthead_newdataset'
+    data_dir = f'/data/tianfr/NeRF_series/SemanticFlow/logs/semantic_flow/full_radiance_field/semantic_flow/tuning_hyperpara/1gpusJumping_Skating_with_semantic_consistency_semantic_branch_wo_intra_attn_debug_ndc_flow_use_flow_distance_lr_decay_8k_newsthead_newdataset'
     print(data_dir)
     print("ONLY_DYNAMIC: ", ONLY_FOREGROUND_LABELS, "ONLY_UNSEEN: ", ONLY_UNSEEN_FRAMES )
     multiview_dir = os.path.join(data_dir, "multiview","step*")

@@ -110,14 +110,14 @@ class Trainer:
         meta['seed'] = seed
         meta['exp_name'] = osp.basename(args.config)
 
-        # Semantic MonoNeRF
+        # 
         if conf.get_bool('model.use_semantic_labels', False):
             conf['model.mlp_static']['use_semantic_labels'] = conf['model.use_semantic_labels']
             conf['model.mlp_static']['semantic_class_num'] = conf['model.semantic_class_num']
             conf['model.mlp_dynamic']['use_semantic_labels'] = conf['model.use_semantic_labels']
             conf['model.mlp_dynamic']['semantic_class_num'] = conf['model.semantic_class_num']
             
-        # Build PixelNerf network with SlowOnly encoder.
+        # Build SemanticFlow network with SlowOnly encoder.
         self.net = make_model(conf['model'],  stop_encoder_grad=args.freeze_enc, use_static_resnet=True)
         train_dataset, val_dset, _ = get_split_dataset(
             args.dataset_format, 
@@ -195,7 +195,7 @@ class Trainer:
                 f = os.path.join(self.basedir, self.expname, 'dynamic_config.txt')
                 with open(f, 'w') as file:
                     file.write(open(args.config, 'r').read())
-            f = os.path.join(self.basedir, self.expname, 'pixelnerf_config.json')
+            f = os.path.join(self.basedir, self.expname, 'semflow_config.json')
             with open(f, 'w') as file:
                 conf_dict = json.dumps(conf, sort_keys=False, indent=4, separators=(',', ': '))
                 file.write(conf_dict)

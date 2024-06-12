@@ -125,8 +125,8 @@ def calculate_metrics(data_dir, sequence, methods, lpips_loss, seq_id=0):
 
 
     nFrame = 0
-    log_base_dir = f"/data/tianfr/NeRF_series/SemanticDyNeRF/logs/semantic_mononerf/full_radiance_field/mononerf_head/1gpusBalloon1"
-    json_path = os.path.join(log_base_dir, 'pixelnerf_config.json')
+    log_base_dir = f"/data/tianfr/NeRF_series/SemanticDyNeRF/logs/semantic_flow/full_radiance_field/mononerf_head/1gpusBalloon1"
+    json_path = os.path.join(log_base_dir, 'semflow_config.json')
     with open(json_path, 'r') as f:
         json_data = json.load(f)
 
@@ -157,9 +157,6 @@ def calculate_metrics(data_dir, sequence, methods, lpips_loss, seq_id=0):
             # if 'Yoon' in methods and sequence == 'Truck' and time == 10:
             #     break
             # import ipdb; ipdb.set_trace()
-            # log_dir = f'/mnt/cache/tianfengrui/NeRF_series/SeDyODENeRF/logs/paper/single_scene_adjusting/1gpusdiscrete3_{sequence}_use_globallayer5_addition_temporalspatial1-1_maskflow0.01wodecay_dbl0.03/testset_view000_{method}/imgs'
-            # log_dir = f'/mnt/cache/tianfengrui/NeRF_series/SeDyODENeRF/logs/paper/single_scene/1gpusdiscrete2_{sequence}_use_globallayer5_concat_temporalspatial1-1_maskflow0.01wodecay_dbl0.06/testset_view000_{method}/imgs'
-            # log_dir = f"/mnt/cache/tianfengrui/NeRF_series/SeDyODENeRF/logs/paper/single_scene_adjusting/1gpusdiscrete3_{sequence}_use_globallayer5_addition_temporalspatial1-1_maskflow0.01wodecay_dbl0.03/testset_view000_{method}/imgs"
             log_dir = os.path.join(log_base_dir, f"testset_view000_{method}")
             log_dir_img = os.path.join(log_dir, 'imgs')
             log_dir_semantic = os.path.join(log_dir, 'semantic_labels')

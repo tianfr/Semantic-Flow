@@ -55,10 +55,6 @@ def calculate_metrics(data_dir, sequence, methods, lpips_loss, seq_id=0):
 
             if 'Yoon' in methods and sequence == 'Truck' and time == 10:
                 break
-            # import ipdb; ipdb.set_trace()
-            # log_dir = f'/mnt/cache/tianfengrui/NeRF_series/SeDyODENeRF/logs/paper/single_scene_adjusting/1gpusdiscrete3_{sequence}_use_globallayer5_addition_temporalspatial1-1_maskflow0.01wodecay_dbl0.03/testset_view000_{method}/imgs'
-            # log_dir = f'/mnt/cache/tianfengrui/NeRF_series/SeDyODENeRF/logs/paper/single_scene/1gpusdiscrete2_{sequence}_use_globallayer5_concat_temporalspatial1-1_maskflow0.01wodecay_dbl0.06/testset_view000_{method}/imgs'
-            # log_dir = f"/mnt/cache/tianfengrui/NeRF_series/SeDyODENeRF/logs/paper/single_scene_adjusting/1gpusdiscrete3_{sequence}_use_globallayer5_addition_temporalspatial1-1_maskflow0.01wodecay_dbl0.03/testset_view000_{method}/imgs"
             log_dir = f"/data/tianfr/NeRF_series/neuphysics/exp/{sequence}/neuphysics_default_view000/validations_fine_view000/{method}/"
             if not os.path.exists(log_dir): 
                 # print("time: ", time)

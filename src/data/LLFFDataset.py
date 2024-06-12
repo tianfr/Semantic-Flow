@@ -498,10 +498,7 @@ class LLFFDataset(torch.utils.data.Dataset):
         where image coordinates are placed in [-1, 1].
         """
         super().__init__()
-        # import ipdb; ipdb.set_trace()
-        # conf_path = '~/petreloss.conf'
-        # oss_path = "s3://tianfengrui/dataset/rs_dtu_4/DTU/"
-        # self.client = Client(conf_path)
+
         self.base_path = path
         # assert os.path.exists(self.base_path)
 

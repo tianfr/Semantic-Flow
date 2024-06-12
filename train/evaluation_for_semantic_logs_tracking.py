@@ -154,9 +154,7 @@ def calculate_metrics(data_dir, sequence_idx, methods, lpips_loss):
     CLASSACCURACYs = np.zeros((len(methods)))
 
     nFrame = 0
-    # json_path = os.path.join(data_dir, 'pixelnerf_config.json')
-    # with open(json_path, 'r') as f:
-    #     json_data = json.load(f)
+
 
     # w_semantic_label_frames = json_data['info'].get('w_semantic_label_frames', [])
     w_semantic_label_frames = [1,2,3,4]

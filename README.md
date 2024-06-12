@@ -21,7 +21,7 @@ The code is tested with
 
 To get started, please create the conda environment `semflow` by running
 ```
-conda create --name mononerf python=3.8
+conda create --name semflow python=3.8
 conda activate semflow
 
 pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html

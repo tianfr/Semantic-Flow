@@ -66,7 +66,7 @@ def ndc_rays(H, W, focal, near, rays_o, rays_d):
     return rays_o, rays_d
 
 
-class PixelNeRFNet(torch.nn.Module):
+class SemanticFlowNet(torch.nn.Module):
     def __init__(self, conf, stop_encoder_grad=True, use_static_resnet=False):
         """
         :param conf PyHocon config subtree 'model'

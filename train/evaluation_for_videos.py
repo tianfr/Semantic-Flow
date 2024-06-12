@@ -83,8 +83,7 @@ def calculate_metrics(data_dir, sequence_idx, methods, input_pose, dir_name):
 
 if __name__ == '__main__':
 
-    # data_dir = '../results'
-    data_dir = '/mnt/cache/tianfengrui/NeRF_series/DynamicNeRF/logs_new/unseen_frame_rendering/150000steps_Playground_H270_DyNeRF_pretrain'
+    data_dir = '../results'
     multiview_dir = os.path.join(data_dir, "multiview","step*")
     steps = glob.glob(multiview_dir)
     steps.sort()
