@@ -26,7 +26,7 @@ conda activate semflow
 
 pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
 pip install imageio==2.19.2 pyhocon==0.3.60  pyparsing==2.4.7 configargparse==1.5.3 tensorboard==2.13.0 ipdb==0.13.13 imgviz==1.7.2 imageio--ffmpeg==0.4.8 
-pip install mmcv-full==1.7.1
+pip install mmcv-full==1.7.0
 ```
 Then install [MMAction2](https://mmaction2.readthedocs.io/en/latest/get_started/installation.html) v0.24.1 manually.
 
@@ -42,7 +42,7 @@ pip install -v -e .
 
 Install other dependencies.
 ```
-pip install tqdm Pillow==9.1.1
+pip install dotmap colorlog tqdm Pillow==9.1.1
 ```
 Finally, clone the Semantic Flow project:
 ```

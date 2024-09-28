@@ -8,8 +8,6 @@ from mmcv import Config
 
 from .encoder import (ImageEncoder, Resnet18,
                       SpatialTemporalEncoder)
-from .mlp_dynamic import MLP_dynamic
-from .mlp_static import MLP_static
 from .resnetfc import ResnetFC
 from .resnetfc_static import ResnetFC_static
 
@@ -26,16 +24,10 @@ def turn_off_pretrained(cfg):
 
 def make_mlp(conf, d_in, d_latent=0, allow_empty=False, **kwargs):
     mlp_type = conf.get_string('type', 'mlp')  # mlp | resnet
-    if mlp_type == 'mlp':
-        net = ImplicitNet.from_conf(conf, d_in + d_latent, **kwargs)
-    elif mlp_type == 'resnet':
+    if mlp_type == 'resnet':
         net = ResnetFC.from_conf(conf, d_in, d_latent=d_latent, **kwargs)
     elif mlp_type == 'resnet_static':
         net = ResnetFC_static.from_conf(conf, d_in, d_latent=d_latent, **kwargs)
-    elif mlp_type == 'mlp_static':
-        net = MLP_static.from_conf(conf, d_in, d_latent=d_latent, **kwargs)
-    elif mlp_type == 'mlp_dynamic':
-        net = MLP_dynamic.from_conf(conf, d_in, d_latent=d_latent, **kwargs)
     elif mlp_type == 'empty' and allow_empty:
         net = None
     else:
